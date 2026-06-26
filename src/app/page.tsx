@@ -4,9 +4,7 @@ import Jurusan from "@/components/Jurusan";
 import MengapaMemilih from "@/components/MengapaMemilih";
 import ProgramSekolah from "@/components/ProgramSekolah";
 import Fasilitas from "@/components/Fasilitas";
-import WallOfFame from "@/components/WallOfFame";
 import Alumni from "@/components/Alumni";
-import VirtualTour from "@/components/VirtualTour";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -19,9 +17,7 @@ export default function Home() {
         <MengapaMemilih />
         <ProgramSekolah />
         <Fasilitas />
-        <WallOfFame />
         <Alumni />
-        <VirtualTour />
       </main>
       <Footer />
     </div>

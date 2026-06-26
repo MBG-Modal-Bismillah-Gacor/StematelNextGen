@@ -76,32 +76,12 @@ export default function Navbar() {
               </div>
 
               {/* Alumni */}
-              <div className="flex items-center px-7 border-r border-gray-300/80 hover:bg-zinc-50/50 transition-colors">
+              <div className="flex items-center px-7 hover:bg-zinc-50/50 transition-colors">
                 <a
                   href="#alumni"
                   className="text-[10.5px] font-bold text-zinc-700 hover:text-red-600 transition-colors uppercase whitespace-nowrap tracking-wider"
                 >
                   ALUMNI
-                </a>
-              </div>
-
-              {/* Virtual Tour */}
-              <div className="flex items-center px-7 border-r border-gray-300/80 hover:bg-zinc-50/50 transition-colors">
-                <a
-                  href="#virtual-tour"
-                  className="text-[10.5px] font-bold text-zinc-700 hover:text-red-600 transition-colors uppercase whitespace-nowrap tracking-wider"
-                >
-                  VIRTUAL TOUR
-                </a>
-              </div>
-
-              {/* Prestasi */}
-              <div className="flex items-center px-7 hover:bg-zinc-50/50 transition-colors">
-                <a
-                  href="#wall-of-fame"
-                  className="text-[10.5px] font-bold text-zinc-700 hover:text-red-600 transition-colors uppercase whitespace-nowrap tracking-wider"
-                >
-                  PRESTASI
                 </a>
               </div>
 
@@ -168,20 +148,7 @@ export default function Navbar() {
           >
             ALUMNI
           </a>
-          <a
-            href="#virtual-tour"
-            onClick={() => setIsOpen(false)}
-            className="py-3 px-4 border-b border-gray-100 text-sm font-bold text-zinc-800 uppercase hover:bg-gray-50 rounded-lg"
-          >
-            VIRTUAL TOUR
-          </a>
-          <a
-            href="#wall-of-fame"
-            onClick={() => setIsOpen(false)}
-            className="py-3 px-4 border-b border-gray-100 text-sm font-bold text-zinc-800 uppercase hover:bg-gray-50 rounded-lg"
-          >
-            PRESTASI
-          </a>
+
         </div>
         <a
           href="#footer"
