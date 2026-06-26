@@ -1,14 +1,14 @@
 "use client";
 
-import { ArrowRight, Compass } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative w-full bg-white px-6 pb-6 pt-2 select-none" style={{ height: "calc(100vh - 76px)", minHeight: "600px", maxHeight: "800px" }}>
-      
+    <section className="relative w-full bg-white px-6 pb-6 pt-[88px] select-none" style={{ height: "100vh", minHeight: "600px", maxHeight: "800px" }}>
+
       {/* Outer rounded card container */}
       <div className="relative w-full h-full rounded-[2.5rem] border border-gray-200 shadow-lg overflow-hidden bg-[#0d0e12]">
-        
+
         {/* Layer 1: Background Image (Building & Sky) */}
         <img
           src="/smktelkom.png"
@@ -37,7 +37,7 @@ export default function Hero() {
           src="/smktelkom.png"
           alt="Gedung SMK Telkom Purwokerto Foreground"
           className="absolute inset-0 w-full h-full object-cover object-[center_35%] filter contrast-[1.06] brightness-[1.02] pointer-events-none z-20"
-          style={{ 
+          style={{
             imageRendering: "auto",
             clipPath: "polygon(0% 39.5%, 33.3% 32.2%, 33.3% 27%, 66.7% 27%, 66.7% 32.2%, 100% 39.5%, 100% 100%, 0% 100%)"
           }}
@@ -74,13 +74,12 @@ export default function Hero() {
 
         {/* ===== Bottom Canopy Area Buttons (Premium Glassmorphism + Micro-animations & Icons) ===== */}
         <div className="absolute bottom-[22%] left-1/2 -translate-x-1/2 z-30 flex items-center justify-center gap-4">
-          
+
           {/* Virtual Tour Button */}
           <a
             href="#virtual-tour"
             className="w-[140px] py-2.5 border border-white/30 bg-white/10 backdrop-blur-md hover:bg-white/20 hover:border-white/50 text-white font-bold text-[12px] tracking-wide rounded-[6px] transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:shadow-[0_0_15px_rgba(255,255,255,0.15)] text-center flex items-center justify-center gap-2 cursor-pointer group"
           >
-            
             Virtual Tour
           </a>
 
@@ -89,14 +88,14 @@ export default function Hero() {
             href="#footer"
             className="w-[140px] py-2.5 border border-white/30 bg-white/10 backdrop-blur-md hover:bg-white/20 hover:border-white/50 text-white font-bold text-[12px] tracking-wide rounded-[6px] transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:shadow-[0_0_15px_rgba(255,255,255,0.15)] text-center flex items-center justify-center gap-1.5 cursor-pointer group"
           >
-            PPDB 
+            PPDB
             <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
 
         </div>
 
         {/* ===== White Line Details stretching from PPDB button area to the right ===== */}
-        <div 
+        <div
           className="absolute bottom-[20.2%] right-0 w-[31%] h-[1.5px] bg-white/60 z-20 hidden sm:block pointer-events-none"
         />
 
