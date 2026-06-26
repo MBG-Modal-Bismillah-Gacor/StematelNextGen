@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
   BookOpen,
   Code,
@@ -27,7 +27,8 @@ import {
   Shield,
   Monitor,
   Briefcase,
-  Settings
+  Settings,
+  ChevronDown
 } from "lucide-react";
 
 // Map string icon names to Lucide icons
@@ -93,6 +94,7 @@ const JURUSAN_DATA = [
       }
     ],
     visualType: "code",
+    imgUrl: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&h=680&q=80",
     themeColor: "text-[#ED1C24] border-[#ED1C24]/30 bg-[#ED1C24]/10",
     gradientColor: "from-[#ED1C24] to-[#f43f5e]"
   },
@@ -114,7 +116,7 @@ const JURUSAN_DATA = [
       {
         title: "Game Programmer",
         icon: "Gamepad2",
-        desc: "Menulis kode logika game, kecerdasan buatan (AI), fisika game, dan gameplay menggunakan Unity Engine atau Unreal Engine."
+        desc: "Menulis kode logika game, kecerdasan buatan (AI), fisika game, dan gameplay menggunakan Unity Engine or Unreal Engine."
       },
       {
         title: "Game Designer",
@@ -128,6 +130,7 @@ const JURUSAN_DATA = [
       }
     ],
     visualType: "game",
+    imgUrl: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&h=680&q=80",
     themeColor: "text-[#8B5CF6] border-[#8B5CF6]/30 bg-[#8B5CF6]/10",
     gradientColor: "from-[#8B5CF6] to-[#a78bfa]"
   },
@@ -163,6 +166,7 @@ const JURUSAN_DATA = [
       }
     ],
     visualType: "network",
+    imgUrl: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=400&h=680&q=80",
     themeColor: "text-[#3B82F6] border-[#3B82F6]/30 bg-[#3B82F6]/10",
     gradientColor: "from-[#3B82F6] to-[#60a5fa]"
   },
@@ -198,189 +202,50 @@ const JURUSAN_DATA = [
       }
     ],
     visualType: "telecom",
+    imgUrl: "https://images.unsplash.com/photo-1562408590-e32931084e23?auto=format&fit=crop&w=400&h=680&q=80",
     themeColor: "text-[#F97316] border-[#F97316]/30 bg-[#F97316]/10",
     gradientColor: "from-[#F97316] to-[#fb923c]"
   }
 ];
 
-function CardVisual({ type }: { type: string }) {
-  if (type === "code") {
-    return (
-      <div className="w-full h-full flex flex-col bg-zinc-950 font-mono text-[9px] p-4 text-zinc-300">
-        {/* IDE Topbar */}
-        <div className="flex items-center justify-between pb-3 border-b border-zinc-800/80 mb-3 select-none">
-          <div className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-[#ff5f56]" />
-            <span className="w-2 h-2 rounded-full bg-[#ffbd2e]" />
-            <span className="w-2 h-2 rounded-full bg-[#27c93f]" />
-          </div>
-          <span className="text-[9px] text-zinc-500">App.tsx</span>
-          <div className="w-4 h-4" />
-        </div>
-        
-        {/* Code Content */}
-        <div className="flex-grow space-y-1.5 leading-relaxed overflow-hidden">
-          <div><span className="text-purple-400">import</span> React <span className="text-purple-400">from</span> <span className="text-emerald-400">"react"</span>;</div>
-          <div><span className="text-purple-400">const</span> <span className="text-blue-400">App</span> = () =&gt; &#123;</div>
-          <div>&nbsp;&nbsp;<span className="text-purple-400">return</span> (</div>
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-blue-400">&lt;</span><span className="text-red-400">div</span> <span className="text-yellow-400">className</span>=<span className="text-emerald-400">"rpl-dev"</span><span className="text-blue-400">&gt;</span></div>
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-blue-400">&lt;</span><span className="text-red-400">h1</span><span className="text-blue-400">&gt;</span><span className="text-zinc-100 font-bold">SMK Telkom</span><span className="text-blue-400">&lt;/</span><span className="text-red-400">h1</span><span className="text-blue-400">&gt;</span></div>
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-blue-400">&lt;</span><span className="text-red-400">Button</span> <span className="text-yellow-400">variant</span>=<span className="text-emerald-400">"primary"</span><span className="text-blue-400">&gt;</span></div>
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deploy App</div>
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-blue-400">&lt;/</span><span className="text-red-400">Button</span><span className="text-blue-400">&gt;</span></div>
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-blue-400">&lt;/</span><span className="text-red-400">div</span><span className="text-blue-400">&gt;</span></div>
-          <div>&nbsp;&nbsp;);</div>
-          <div>&#125;;</div>
-        </div>
-
-        {/* Floating Success Indicator */}
-        <div className="absolute bottom-4 right-4 bg-emerald-500/10 border border-emerald-500/30 rounded-[6px] px-2 py-0.5 text-[8px] font-bold text-emerald-400 flex items-center gap-1 shadow-md shadow-emerald-500/5 animate-pulse">
-          <span className="w-1 h-1 rounded-full bg-emerald-400" />
-          SUCCESS
-        </div>
+function CardVisual({ type, imgUrl }: { type: string; imgUrl: string }) {
+  return (
+    <div className="w-full h-full relative">
+      <img
+        src={imgUrl}
+        alt={type}
+        className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+      />
+      {/* Premium Dark Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none z-10" />
+      
+      {/* Floating Badge & Text */}
+      <div className="absolute bottom-4 left-4 right-4 z-20 flex flex-col gap-1 text-left">
+        <span className="text-[8px] text-zinc-400 font-bold uppercase tracking-widest leading-none">
+          Aktivitas Siswa
+        </span>
+        <span className="text-[11.5px] text-white font-extrabold tracking-wide uppercase leading-tight">
+          {type === "code" ? "Software Engineering" :
+           type === "game" ? "Game Development" :
+           type === "network" ? "Network Infrastructure" :
+           "Telecom Technology"}
+        </span>
       </div>
-    );
-  }
-
-  if (type === "game") {
-    return (
-      <div className="w-full h-full flex flex-col bg-slate-900 overflow-hidden relative p-4 font-mono text-[9px] text-zinc-300">
-        {/* Game HUD */}
-        <div className="flex justify-between items-center text-white select-none z-10">
-          <div className="flex items-center gap-0.5">
-            <span className="text-rose-500 font-bold">♥</span>
-            <span>x3</span>
-          </div>
-          <div className="bg-purple-500/20 border border-purple-500/30 rounded-full px-1.5 py-0.5 text-purple-300 font-bold tracking-wider">
-            LVL 02
-          </div>
-          <div className="font-bold text-amber-400">SCORE: 18,400</div>
-        </div>
-
-        {/* Game Background Graphics */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a] to-[#1e1b4b] opacity-40 pointer-events-none" />
-        
-        {/* Ground */}
-        <div className="absolute inset-x-0 bottom-0 h-14 bg-zinc-950 border-t-2 border-purple-600 flex items-center justify-around">
-          <div className="w-3 h-3 bg-purple-950/40 rounded-sm" />
-          <div className="w-5 h-2 bg-purple-950/40 rounded-sm" />
-        </div>
-
-        {/* Jumping Hero character */}
-        <div className="absolute bottom-14 left-10 w-6 h-6 flex items-center justify-center">
-          <div className="w-5 h-5 bg-purple-500 border border-purple-400 rounded shadow-md shadow-purple-500/40 relative animate-bounce">
-            <div className="absolute top-1 right-1 flex gap-0.5">
-              <span className="w-0.5 h-0.5 bg-white rounded-full" />
-              <span className="w-0.5 h-0.5 bg-white rounded-full" />
-            </div>
-            <div className="absolute -top-1.5 -left-1.5 w-1 h-3 bg-amber-400 border border-amber-300 rounded rotate-45" />
-          </div>
-        </div>
-
-        {/* Collectible Star */}
-        <div className="absolute top-24 left-28 w-3 h-3 bg-amber-400 rounded-full animate-bounce flex items-center justify-center text-[7px] font-bold text-amber-950 border border-amber-300 shadow-md">
-          ★
-        </div>
-
-        {/* Gamepad Floating Tag */}
-        <div className="absolute bottom-4 right-4 bg-purple-500/10 border border-purple-500/30 rounded-[6px] px-2 py-0.5 text-[8px] font-bold text-purple-400 flex items-center gap-1 shadow-md shadow-purple-500/5 select-none">
-          GAME ENGINE READY
-        </div>
-      </div>
-    );
-  }
-
-  if (type === "network") {
-    return (
-      <div className="w-full h-full flex flex-col bg-[#020617] overflow-hidden relative p-4 font-mono text-[9px] text-zinc-300">
-        {/* Top title */}
-        <div className="flex items-center justify-between border-b border-zinc-800/80 pb-2 mb-2 text-zinc-500 select-none">
-          <span>NET_MONITOR v1.4</span>
-          <span className="text-[#3B82F6] font-bold">SYS: SECURE</span>
-        </div>
-
-        {/* Network Topology Graph */}
-        <div className="flex-grow relative flex items-center justify-center my-1 select-none">
-          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-            {/* Connection Lines */}
-            <line x1="50" y1="25" x2="20" y2="65" stroke="#1e3a8a" strokeWidth="0.75" />
-            <line x1="50" y1="25" x2="50" y2="65" stroke="#1e3a8a" strokeWidth="0.75" />
-            <line x1="50" y1="25" x2="80" y2="65" stroke="#1e3a8a" strokeWidth="0.75" />
-            
-            {/* Center Node */}
-            <circle cx="50" cy="25" r="7" fill="#3b82f6" className="animate-pulse" />
-            <text x="50" y="27" fill="white" fontSize="5" fontWeight="bold" textAnchor="middle">SVR</text>
-
-            {/* Client Nodes */}
-            <circle cx="20" cy="65" r="5" fill="#0f172a" stroke="#3b82f6" strokeWidth="0.75" />
-            <text x="20" y="67" fill="#93c5fd" fontSize="4.5" textAnchor="middle">PC1</text>
-
-            <circle cx="50" cy="65" r="5" fill="#0f172a" stroke="#3b82f6" strokeWidth="0.75" />
-            <text x="50" y="67" fill="#93c5fd" fontSize="4.5" textAnchor="middle">PC2</text>
-
-            <circle cx="80" cy="65" r="5" fill="#0f172a" stroke="#3b82f6" strokeWidth="0.75" />
-            <text x="80" y="67" fill="#93c5fd" fontSize="4.5" textAnchor="middle">PC3</text>
-          </svg>
-        </div>
-
-        {/* Live Terminal Output */}
-        <div className="bg-black/60 border border-zinc-900 rounded-[8px] p-2 text-zinc-400 space-y-1 text-[8px] leading-tight select-none">
-          <div><span className="text-zinc-600">$</span> ping 8.8.8.8</div>
-          <div className="text-blue-400">Reply from 8.8.8.8: bytes=32 time=10ms</div>
-          <div className="text-emerald-400">Packets: Sent = 4, Received = 4, Loss = 0%</div>
-        </div>
-      </div>
-    );
-  }
-
-  if (type === "telecom") {
-    return (
-      <div className="w-full h-full flex flex-col bg-[#0c0602] overflow-hidden relative p-4 font-mono text-[9px] text-zinc-300">
-        {/* Topbar */}
-        <div className="flex items-center justify-between border-b border-zinc-800/80 pb-2 mb-2 text-zinc-500 select-none">
-          <span>TX_STATION v2.0</span>
-          <span className="text-[#F97316] font-bold">LINK: ACTIVE</span>
-        </div>
-
-        {/* Fiber Optic Cross Section / Telecom Antenna Graph */}
-        <div className="flex-grow flex items-center justify-around py-1 select-none">
-          {/* Fiber Optic Cable */}
-          <div className="relative w-12 h-12 rounded-full border border-zinc-800 bg-zinc-950 flex items-center justify-center">
-            <div className="w-8 h-8 rounded-full border border-dashed border-orange-500/40 flex items-center justify-center animate-spin" style={{ animationDuration: '8s' }} />
-            <span className="w-2 h-2 rounded-full bg-orange-500 absolute top-3 left-4 shadow-md shadow-orange-500" />
-            <span className="w-2 h-2 rounded-full bg-cyan-500 absolute bottom-3 left-3 shadow-md shadow-cyan-500" />
-            <span className="w-2.5 h-2.5 rounded-full bg-white absolute shadow-md shadow-white" />
-          </div>
-
-          {/* Telecom Transmission Waves */}
-          <div className="flex flex-col gap-1 w-14 items-center justify-center">
-            <svg className="w-10 h-10" viewBox="0 0 50 50">
-              <line x1="25" y1="40" x2="25" y2="18" stroke="#f97316" strokeWidth="1.5" />
-              <circle cx="25" cy="18" r="2.5" fill="#f97316" className="animate-pulse" />
-              <path d="M 20 14 A 8 8 0 0 1 30 14" fill="none" stroke="#f97316" strokeWidth="0.75" className="animate-ping" style={{ animationDuration: '2s' }} />
-            </svg>
-          </div>
-        </div>
-
-        {/* Signal Stats */}
-        <div className="bg-black/60 border border-zinc-900 rounded-[8px] p-2 text-zinc-400 space-y-1 text-[8px] leading-tight select-none">
-          <div className="flex justify-between">
-            <span>SIG:</span>
-            <span className="text-emerald-400 font-bold">-62 dBm</span>
-          </div>
-          <div className="flex justify-between">
-            <span>LOSS:</span>
-            <span className="text-emerald-400 font-bold">0.18 dB/km</span>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  return null;
+    </div>
+  );
 }
 
 export default function Jurusan() {
+  // Track which career item is open per card: { [majorId]: openIndex | null }
+  const [openCareer, setOpenCareer] = useState<{ [key: string]: number | null }>({});
+
+  const toggleCareer = (majorId: string, idx: number) => {
+    setOpenCareer(prev => ({
+      ...prev,
+      [majorId]: prev[majorId] === idx ? null : idx,
+    }));
+  };
+
   return (
     <section id="jurusan" className="relative w-full bg-white py-24 px-6 select-none border-t border-gray-100 overflow-visible">
       
@@ -402,7 +267,8 @@ export default function Jurusan() {
               Jurusan
             </span>
             <h2 className="text-[32px] sm:text-[38px] lg:text-[44px] font-black text-zinc-900 leading-tight tracking-tight uppercase max-w-2xl">
-              Kenali Lebih Dekat Pilihan Jurusanmu
+              Kenali Lebih Dekat<br />
+              <span className="text-[#ED1C24]">Pilihan Jurusanmu</span>
             </h2>
           </div>
 
@@ -434,7 +300,7 @@ export default function Jurusan() {
               >
                 
                 {/* LEFT COLUMN: Subjects Learned (Grid Span: 5) */}
-                <div className="lg:col-span-5 flex flex-col gap-6">
+                <div className="lg:col-span-4 flex flex-col gap-6">
                   <h3 className="text-zinc-900 text-[17px] font-extrabold tracking-tight">
                     Apa saja yang di <span className="text-[#ED1C24]">pelajari</span>?
                   </h3>
@@ -461,9 +327,9 @@ export default function Jurusan() {
                 </div>
 
                 {/* CENTER COLUMN: Phone Mockup Frame (Grid Span: 3) */}
-                <div className="lg:col-span-3 flex justify-center items-center">
-                  <div className="w-[210px] h-[360px] bg-zinc-950 border-[8px] border-zinc-900 rounded-[30px] shadow-2xl relative overflow-hidden flex flex-col flex-shrink-0">
-                    <CardVisual type={major.visualType} />
+                <div className="lg:col-span-4 flex justify-center items-center">
+                  <div className="w-[260px] h-[440px] xl:w-[290px] xl:h-[490px] bg-zinc-950 border-[8px] border-zinc-900 rounded-[36px] shadow-2xl relative overflow-hidden flex flex-col flex-shrink-0">
+                    <CardVisual type={major.visualType} imgUrl={major.imgUrl} />
                   </div>
                 </div>
 
@@ -489,23 +355,37 @@ export default function Jurusan() {
                       Prospek <span className="text-[#ED1C24]">kerja</span>
                     </h4>
                     
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-2">
                       {major.careers.map((career, idx) => {
                         const CareerIcon = IconMap[career.icon] || Briefcase;
+                        const isOpen = openCareer[major.id] === idx;
                         return (
-                          <div key={idx} className="flex gap-3.5 items-start">
-                            <div className="flex items-center justify-center w-7.5 h-7.5 rounded-[6px] bg-zinc-50 border border-zinc-150 text-zinc-600 flex-shrink-0">
-                              <CareerIcon className="w-3.5 h-3.5" />
-                            </div>
-                            <div className="flex flex-col">
-                              <span className="text-[12.5px] font-black text-zinc-900 leading-tight">
+                          <div key={idx} className="border border-zinc-100 rounded-[12px] overflow-hidden bg-zinc-50/50 hover:border-zinc-200 transition-colors duration-200">
+                            {/* Clickable Header */}
+                            <button
+                              onClick={() => toggleCareer(major.id, idx)}
+                              className="w-full flex gap-3 items-center px-4 py-3 cursor-pointer text-left"
+                            >
+                              <div className="flex items-center justify-center w-7 h-7 rounded-[6px] bg-white border border-zinc-200 text-zinc-600 flex-shrink-0">
+                                <CareerIcon className="w-3.5 h-3.5" />
+                              </div>
+                              <span className="text-[12.5px] font-black text-zinc-900 leading-tight flex-1">
                                 {career.title}
                               </span>
-                              {idx === 0 && (
-                                <p className="text-zinc-500 text-[11px] leading-relaxed mt-1 font-medium max-w-sm">
-                                  {career.desc}
-                                </p>
-                              )}
+                              <ChevronDown
+                                className={`w-4 h-4 text-zinc-400 flex-shrink-0 transition-transform duration-300 ${
+                                  isOpen ? "rotate-180" : "rotate-0"
+                                }`}
+                              />
+                            </button>
+                            {/* Expandable Description */}
+                            <div
+                              className="overflow-hidden transition-all duration-300 ease-in-out"
+                              style={{ maxHeight: isOpen ? "120px" : "0px" }}
+                            >
+                              <p className="text-zinc-500 text-[11px] leading-relaxed font-medium px-4 pb-4 pt-0">
+                                {career.desc}
+                              </p>
                             </div>
                           </div>
                         );

@@ -1,133 +1,194 @@
-import { MapPin, Mail, Phone, ExternalLink } from "lucide-react";
+"use client";
+
+import React from "react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
+
+const NAV_COLS = [
+  {
+    title: "Sekolah",
+    links: [
+      { label: "Profil Sekolah", href: "#" },
+      { label: "Visi & Misi", href: "#" },
+      { label: "Akreditasi", href: "#" },
+      { label: "Sejarah", href: "#" },
+    ],
+  },
+  {
+    title: "Program",
+    links: [
+      { label: "RPL", href: "#jurusan" },
+      { label: "Pengembangan Gim", href: "#jurusan" },
+      { label: "TKJ", href: "#jurusan" },
+      { label: "TJA", href: "#jurusan" },
+    ],
+  },
+  {
+    title: "Siswa",
+    links: [
+      { label: "PPDB Online", href: "#" },
+      { label: "Prestasi", href: "#" },
+      { label: "Wall of Fame", href: "#" },
+      { label: "Beasiswa", href: "#" },
+    ],
+  },
+  {
+    title: "Fasilitas",
+    links: [
+      { label: "Lab Komputer", href: "#" },
+      { label: "Studio Gim", href: "#" },
+      { label: "Lab Jaringan", href: "#" },
+      { label: "Perpustakaan", href: "#" },
+    ],
+  },
+];
 
 export default function Footer() {
   return (
-    <footer id="footer" className="relative bg-[#050517] border-t border-white/5 pt-20 pb-8 text-zinc-300">
-      {/* Decorative Glows */}
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-telkom-red/5 blur-[120px] pointer-events-none" />
-      <div className="absolute top-0 left-1/4 w-[300px] h-[300px] rounded-full bg-telkom-navy/10 blur-[100px] pointer-events-none" />
+    <div className="w-full bg-white px-5 pb-5 pt-0">
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-        {/* About & Info */}
-        <div className="space-y-6">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-telkom-red flex items-center justify-center font-bold text-lg text-white shadow-lg shadow-telkom-red/35">
-              T
-            </div>
-            <div>
-              <h2 className="font-heading font-extrabold text-sm md:text-base tracking-tight leading-none text-white flex items-center gap-1.5">
-                SMK <span className="text-telkom-red">Telkom</span>
-              </h2>
-              <span className="text-[10px] text-zinc-400 tracking-wider font-mono">PURWOKERTO</span>
-            </div>
-          </div>
-          <p className="text-sm text-zinc-400 leading-relaxed font-body">
-            SMK Telkom Purwokerto merupakan sekolah IT unggulan di Jawa Tengah yang berorientasi global, siap mencetak generasi digital teladan, inovatif, dan berdaya saing global.
+      {/* ── CTA BANNER (above footer card) ── */}
+      <div className="relative overflow-hidden bg-gradient-to-br from-[#ED1C24] via-[#d41920] to-[#b01018] rounded-[20px] px-10 py-14 mb-4 flex flex-col items-center text-center gap-6">
+        {/* Decorative blobs */}
+        <div className="absolute -left-16 -top-16 w-64 h-64 rounded-full bg-white/5 pointer-events-none" />
+        <div className="absolute -right-10 -bottom-10 w-48 h-48 rounded-full bg-black/10 pointer-events-none" />
+        <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[600px] h-[2px] bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
+
+        {/* Badge */}
+        <span className="relative z-10 inline-flex items-center bg-white/15 border border-white/20 text-white text-[11px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
+          Penerimaan Peserta Didik Baru 2025/2026
+        </span>
+
+        {/* Headline */}
+        <div className="relative z-10 flex flex-col gap-3 max-w-[640px]">
+          <h3 className="text-white font-black text-[28px] sm:text-[36px] lg:text-[42px] leading-tight tracking-tight">
+            Mulai Perjalananmu Bersama<br />
+            SMK Telkom Purwokerto
+          </h3>
+          <p className="text-white/65 text-[13.5px] font-medium leading-relaxed max-w-[460px] mx-auto">
+            Bergabunglah dengan komunitas pelajar digital terbaik. Raih masa depan di bidang teknologi, gim, dan telekomunikasi.
           </p>
-          <div className="flex items-center gap-3">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/5 hover:bg-telkom-red hover:text-white flex items-center justify-center transition-all duration-300" aria-label="Instagram">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-              </svg>
-            </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/5 hover:bg-telkom-red hover:text-white flex items-center justify-center transition-all duration-300" aria-label="Facebook">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-              </svg>
-            </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/5 hover:bg-telkom-red hover:text-white flex items-center justify-center transition-all duration-300" aria-label="Youtube">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
-                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" />
-              </svg>
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/5 hover:bg-telkom-red hover:text-white flex items-center justify-center transition-all duration-300" aria-label="Twitter">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
-              </svg>
-            </a>
+        </div>
+
+        {/* Buttons */}
+        <div className="relative z-10 flex flex-wrap items-center justify-center gap-3">
+          <a href="#" className="flex items-center gap-2 bg-white text-[#ED1C24] font-black text-[13px] px-6 py-3 rounded-[12px] hover:bg-zinc-100 transition-colors duration-200 shadow-[0_4px_20px_rgba(0,0,0,0.15)]">
+            Daftar Sekarang
+            <ArrowUpRight className="w-4 h-4" />
+          </a>
+          <a href="#" className="flex items-center gap-2 bg-white/10 border border-white/25 text-white font-bold text-[13px] px-6 py-3 rounded-[12px] hover:bg-white/20 transition-colors duration-200">
+            Info Lebih Lanjut
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+        </div>
+      </div>
+
+      {/* ── DARK FOOTER CARD ── */}
+      <div className="w-full bg-zinc-950 rounded-[28px] overflow-hidden relative">
+
+        {/* Subtle red glow top-left */}
+        <div
+          className="absolute top-0 left-0 w-[500px] h-[300px] pointer-events-none"
+          style={{
+            background: "radial-gradient(ellipse at 0% 0%, rgba(237,28,36,0.10) 0%, transparent 65%)",
+          }}
+        />
+
+        {/* ── MAIN LINKS AREA ── */}
+        <div className="relative z-10 px-10 pt-10 pb-8">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-0 items-start">
+
+            {/* LEFT: Logo + Info */}
+            <div className="flex-shrink-0 w-full lg:w-[280px] flex flex-col gap-6">
+              <img
+                src="/logo-telkom-schools-bundar-removebg-preview.png"
+                alt="Logo SMK Telkom Purwokerto"
+                className="w-[100px] h-[100px] object-contain"
+                style={{ filter: "brightness(0) invert(1)" }}
+              />
+
+              <div className="flex flex-col gap-1.5">
+                <h3 className="text-white font-black text-[18px] leading-tight uppercase tracking-tight">
+                  SMK Telkom Purwokerto
+                </h3>
+                <p className="text-zinc-500 text-[12.5px] font-medium leading-relaxed">
+                  Window to Excellence — Mencetak talenta digital inovatif dan berdaya saing global.
+                </p>
+              </div>
+            </div>
+
+            {/* Vertical separator */}
+            <div className="hidden lg:block w-px bg-white/6 self-stretch mx-10 flex-shrink-0" />
+
+            {/* RIGHT: Nav columns */}
+            <div className="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-10">
+              {NAV_COLS.map((col) => (
+                <div key={col.title} className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-1">
+                    <span className="text-white text-[11px] font-extrabold uppercase tracking-[0.12em]">
+                      {col.title}
+                    </span>
+                    <div className="w-5 h-[2px] bg-[#ED1C24] rounded-full" />
+                  </div>
+                  <ul className="flex flex-col gap-2.5">
+                    {col.links.map((link) => (
+                      <li key={link.label}>
+                        <a
+                          href={link.href}
+                          className="text-zinc-500 text-[12.5px] font-medium hover:text-zinc-100 transition-colors duration-200 flex items-center gap-1 group"
+                        >
+                          <span className="group-hover:translate-x-0.5 transition-transform duration-200 inline-block">
+                            {link.label}
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
 
-        {/* Quick Links */}
-        <div className="space-y-6">
-          <h3 className="font-heading text-sm font-extrabold uppercase tracking-wider text-white border-l-4 border-telkom-red pl-3">
-            Navigasi Cepat
-          </h3>
-          <ul className="space-y-3 text-sm">
-            <li><a href="#hero" className="hover:text-telkom-red hover:translate-x-1 inline-block transition-all">Home</a></li>
-            <li><a href="#jurusan" className="hover:text-telkom-red hover:translate-x-1 inline-block transition-all">Showcase Jurusan</a></li>
-            <li><a href="#wall-of-fame" className="hover:text-telkom-red hover:translate-x-1 inline-block transition-all">Wall of Fame</a></li>
-            <li><a href="#alumni" className="hover:text-telkom-red hover:translate-x-1 inline-block transition-all">Sebaran Alumni</a></li>
-            <li><a href="#virtual-tour" className="hover:text-telkom-red hover:translate-x-1 inline-block transition-all">Virtual Campus Tour</a></li>
-            <li><a href="#keterserapan" className="hover:text-telkom-red hover:translate-x-1 inline-block transition-all">Statistik Lulusan</a></li>
-          </ul>
+        {/* ── BOTTOM BAR ── */}
+        <div className="relative z-10 mx-10 border-t border-white/6" />
+        <div className="relative z-10 px-10 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <p className="text-zinc-600 text-[11px] font-medium">
+            © {new Date().getFullYear()} SMK Telkom Purwokerto. All rights reserved.
+          </p>
+          <div className="flex items-center gap-4">
+            {["Kebijakan Privasi", "Syarat & Ketentuan", "PPDB Portal"].map((t, i, arr) => (
+              <React.Fragment key={t}>
+                <a href="#" className="text-zinc-600 text-[11px] font-medium hover:text-zinc-300 transition-colors duration-200">{t}</a>
+                {i < arr.length - 1 && <span className="text-zinc-700 text-[10px]">·</span>}
+              </React.Fragment>
+            ))}
+          </div>
         </div>
 
-        {/* Contact Info */}
-        <div className="space-y-6">
-          <h3 className="font-heading text-sm font-extrabold uppercase tracking-wider text-white border-l-4 border-telkom-red pl-3">
-            Hubungi Kami
-          </h3>
-          <ul className="space-y-4 text-sm font-body">
-            <li className="flex items-start gap-3">
-              <MapPin className="w-5 h-5 text-telkom-red shrink-0 mt-0.5" />
-              <span className="text-zinc-400">Jl. Letjen Panjaitan No.119, Purwokerto Kidul, Purwokerto Selatan, Kab. Banyumas, Jawa Tengah 53147</span>
-            </li>
-            <li className="flex items-center gap-3">
-              <Phone className="w-4 h-4 text-telkom-red shrink-0" />
-              <span className="text-zinc-400">(0281) 634908 / +62 813-9119-9119</span>
-            </li>
-            <li className="flex items-center gap-3">
-              <Mail className="w-4 h-4 text-telkom-red shrink-0" />
-              <span className="text-zinc-400">info@smktelkom-pwt.sch.id</span>
-            </li>
-          </ul>
-        </div>
-
-        {/* Location Map Embed */}
-        <div className="space-y-6">
-          <h3 className="font-heading text-sm font-extrabold uppercase tracking-wider text-white border-l-4 border-telkom-red pl-3">
-            Lokasi Sekolah
-          </h3>
-          <div className="w-full h-44 rounded-2xl overflow-hidden border border-white/10 glass-effect relative group">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1m4!1s0x2e655c313ec60307:0xe4a13f0cb0e3630f!2sSMK+Telkom+Purwokerto!5m2!1sid!2sid"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen={false}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
-            <a
-              href="https://maps.app.goo.gl/tJ9c7g7J8g7g8g7g8"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute bottom-2 right-2 bg-[#050517]/85 backdrop-blur-md border border-white/10 px-2.5 py-1.5 rounded-lg text-[10px] font-bold text-white flex items-center gap-1 hover:bg-telkom-red transition-all"
+        {/* ── GIANT WORDMARK ── */}
+        <div
+          className="relative z-10 w-full overflow-hidden"
+          aria-hidden="true"
+          style={{ height: "clamp(88px, 12vw, 160px)" }}
+        >
+          <div className="absolute bottom-0 left-0 w-full flex items-end justify-center">
+            <span
+              className="text-white font-black uppercase whitespace-nowrap"
+              style={{
+                fontSize: "clamp(68px, 12.5vw, 172px)",
+                lineHeight: 0.82,
+                letterSpacing: "-0.03em",
+                WebkitMaskImage: "linear-gradient(to bottom, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.18) 55%, transparent 100%)",
+                maskImage: "linear-gradient(to bottom, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.18) 55%, transparent 100%)",
+              }}
             >
-              Google Maps <ExternalLink className="w-3 h-3" />
-            </a>
+              SMK TELKOM
+            </span>
           </div>
         </div>
-      </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8 border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
-        <div>
-          © {new Date().getFullYear()} SMK Telkom Purwokerto. All Rights Reserved.
-        </div>
-        <div className="flex gap-6">
-          <a href="#" className="hover:text-zinc-300">Privacy Policy</a>
-          <span>•</span>
-          <a href="#" className="hover:text-zinc-300">Terms of Service</a>
-          <span>•</span>
-          <a href="#" className="hover:text-zinc-300">PPDB Portal</a>
-        </div>
       </div>
-    </footer>
+    </div>
   );
 }

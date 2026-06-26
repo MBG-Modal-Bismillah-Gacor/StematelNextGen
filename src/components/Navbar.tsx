@@ -3,6 +3,15 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 
+const NAV_ITEMS = [
+  { label: "Tentang", href: "#about" },
+  { label: "Program", href: "#unggulan" },
+  { label: "Mengapa Kami", href: "#mengapa-memilih" },
+  { label: "Fasilitas", href: "#fasilitas" },
+  { label: "Alumni", href: "#alumni" },
+  { label: "Jurusan", href: "#jurusan" },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,10 +26,10 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Outer Wrapper - Always fixed, centering the child capsule */}
+      {/* Outer Wrapper */}
       <header className="fixed top-0 left-0 right-0 z-50 w-full flex justify-center pointer-events-none transition-all duration-300">
-        
-        {/* Inner Capsule Container - Transitions between larger top navbar and floating card */}
+
+        {/* Inner Capsule */}
         <div
           className={`w-full flex items-center justify-between pointer-events-auto transition-all duration-300 ease-in-out select-none ${
             isScrolled
@@ -28,9 +37,9 @@ export default function Navbar() {
               : "max-w-full h-[88px] bg-white border-b border-transparent rounded-none px-6 md:px-12"
           }`}
         >
-          {/* Left Section: Logo */}
+          {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#hero" className="flex items-center">
+            <a href="#" className="flex items-center">
               <img
                 src="/Logo-SMK-Telkom-Purwokerto.png"
                 alt="SMK Telkom Purwokerto Logo"
@@ -41,66 +50,37 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Center Section: Unified Navigation Pill (Desktop Only - Cohesive, h-[40px] height, px-7 spacing) */}
+          {/* Desktop Nav Pill */}
           <div className="hidden lg:flex flex-grow items-center justify-center">
             <div className="flex items-stretch h-[40px] border border-gray-300/80 rounded-[6px] bg-white overflow-hidden shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
-              
-              {/* Tentang */}
-              <div className="flex items-center px-7 border-r border-gray-300/80 hover:bg-zinc-50/50 transition-colors">
-                <a
-                  href="#hero"
-                  className="text-[10.5px] font-bold text-zinc-700 hover:text-red-600 transition-colors uppercase whitespace-nowrap tracking-wider"
+              {NAV_ITEMS.map((item, idx) => (
+                <div
+                  key={item.href}
+                  className={`flex items-center px-5 hover:bg-zinc-50/50 transition-colors ${
+                    idx < NAV_ITEMS.length - 1 ? "border-r border-gray-300/80" : ""
+                  }`}
                 >
-                  TENTANG
-                </a>
-              </div>
-
-              {/* Jurusan */}
-              <div className="flex items-center px-7 border-r border-gray-300/80 hover:bg-zinc-50/50 transition-colors">
-                <a
-                  href="#jurusan"
-                  className="text-[10.5px] font-bold text-zinc-700 hover:text-red-600 transition-colors uppercase whitespace-nowrap tracking-wider"
-                >
-                  JURUSAN
-                </a>
-              </div>
-
-              {/* Unggulan */}
-              <div className="flex items-center px-7 border-r border-gray-300/80 hover:bg-zinc-50/50 transition-colors">
-                <a
-                  href="#unggulan"
-                  className="text-[10.5px] font-bold text-zinc-700 hover:text-red-600 transition-colors uppercase whitespace-nowrap tracking-wider"
-                >
-                  UNGGULAN
-                </a>
-              </div>
-
-              {/* Alumni */}
-              <div className="flex items-center px-7 hover:bg-zinc-50/50 transition-colors">
-                <a
-                  href="#alumni"
-                  className="text-[10.5px] font-bold text-zinc-700 hover:text-red-600 transition-colors uppercase whitespace-nowrap tracking-wider"
-                >
-                  ALUMNI
-                </a>
-              </div>
-
+                  <a
+                    href={item.href}
+                    className="text-[10.5px] font-bold text-zinc-700 hover:text-red-600 transition-colors uppercase whitespace-nowrap tracking-wider"
+                  >
+                    {item.label}
+                  </a>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Right Section: PPDB Button (Desktop) & Menu Toggle (Mobile) */}
+          {/* Right: PPDB + Mobile toggle */}
           <div className="flex-shrink-0 flex items-center gap-4">
-            
-            {/* PPDB Button (Desktop Only - Premium Gradient, h-[40px] to match center pill) */}
             <a
-              href="#footer"
-              className="hidden lg:flex items-center justify-center bg-gradient-to-r from-[#ED1C24] to-[#D11018] hover:from-[#D11018] hover:to-[#B30E14] text-white text-[12px] font-bold tracking-wider px-6 h-[40px] rounded-[6px] transition-all duration-300 hover:shadow-lg hover:shadow-red-500/25 active:scale-[0.97] whitespace-nowrap uppercase cursor-pointer flex items-center gap-1.5 group"
+              href="#"
+              className="hidden lg:flex items-center gap-1.5 bg-gradient-to-r from-[#ED1C24] to-[#D11018] hover:from-[#D11018] hover:to-[#B30E14] text-white text-[12px] font-bold tracking-wider px-6 h-[40px] rounded-[6px] transition-all duration-300 hover:shadow-lg hover:shadow-red-500/25 active:scale-[0.97] whitespace-nowrap uppercase group"
             >
               PPDB
               <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
 
-            {/* Mobile Menu Toggle */}
             <button
               className="lg:hidden p-2 text-zinc-600 hover:text-zinc-900 rounded-lg hover:bg-gray-100 transition-colors"
               onClick={() => setIsOpen(!isOpen)}
@@ -108,7 +88,6 @@ export default function Navbar() {
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
-            
           </div>
         </div>
       </header>
@@ -120,38 +99,19 @@ export default function Navbar() {
         }`}
       >
         <div className="flex flex-col gap-1">
-          <a
-            href="#hero"
-            onClick={() => setIsOpen(false)}
-            className="py-3 px-4 border-b border-gray-100 text-sm font-bold text-zinc-800 uppercase hover:bg-gray-50 rounded-lg"
-          >
-            TENTANG
-          </a>
-          <a
-            href="#jurusan"
-            onClick={() => setIsOpen(false)}
-            className="py-3 px-4 border-b border-gray-100 text-sm font-bold text-zinc-800 uppercase hover:bg-gray-50 rounded-lg"
-          >
-            JURUSAN
-          </a>
-          <a
-            href="#unggulan"
-            onClick={() => setIsOpen(false)}
-            className="py-3 px-4 border-b border-gray-100 text-sm font-bold text-zinc-800 uppercase hover:bg-gray-50 rounded-lg"
-          >
-            UNGGULAN
-          </a>
-          <a
-            href="#alumni"
-            onClick={() => setIsOpen(false)}
-            className="py-3 px-4 border-b border-gray-100 text-sm font-bold text-zinc-800 uppercase hover:bg-gray-50 rounded-lg"
-          >
-            ALUMNI
-          </a>
-
+          {NAV_ITEMS.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={() => setIsOpen(false)}
+              className="py-3 px-4 border-b border-gray-100 text-sm font-bold text-zinc-800 uppercase hover:bg-gray-50 rounded-lg"
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
         <a
-          href="#footer"
+          href="#"
           onClick={() => setIsOpen(false)}
           className="mt-4 w-full text-center py-3.5 bg-[#ED1C24] hover:bg-[#C8161D] text-white rounded-lg text-sm font-bold tracking-wide transition-all uppercase flex items-center justify-center gap-2"
         >
