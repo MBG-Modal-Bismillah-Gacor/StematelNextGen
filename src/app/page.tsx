@@ -6,6 +6,8 @@ import ProgramSekolah from "@/components/ProgramSekolah";
 import Fasilitas from "@/components/Fasilitas";
 import Alumni from "@/components/Alumni";
 import Jurusan from "@/components/Jurusan";
+import KarirProduk from "@/components/KarirProduk";
+import MitraPrestasi from "@/components/MitraPrestasi";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -20,6 +22,8 @@ export default function Home() {
         <Fasilitas />
         <Alumni />
         <Jurusan />
+        <KarirProduk />
+        <MitraPrestasi />
       </main>
       <Footer />
     </div>
