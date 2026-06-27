@@ -8,6 +8,7 @@ import Alumni from "@/components/Alumni";
 import Jurusan from "@/components/Jurusan";
 import KarirProduk from "@/components/KarirProduk";
 import MitraPrestasi from "@/components/MitraPrestasi";
+import CtaBanner from "@/components/CtaBanner";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
         <Jurusan />
         <KarirProduk />
         <MitraPrestasi />
+        <CtaBanner />
       </main>
       <Footer />
     </div>
