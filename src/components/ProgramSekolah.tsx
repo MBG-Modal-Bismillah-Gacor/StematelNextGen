@@ -46,33 +46,21 @@ export default function ProgramSekolah() {
             <span className="text-zinc-400 text-[11.5px] font-bold uppercase tracking-widest block mb-4">
               Program Sekolah
             </span>
-            <h2 className="text-[28px] sm:text-[36px] lg:text-[38px] font-black text-zinc-900 leading-tight tracking-tight max-w-2xl relative">
-              {/* On desktop, 'A' is placed absolutely at the left of the container */}
-              <span className="lg:absolute lg:left-0 lg:top-0">A</span>
-              {/* On desktop, the rest of the text is indented by 124px to align with the vertical line */}
-              <span className="block lg:pl-[124px]">
-                World-Class Range of <br />
-                <span className="text-[#ED1C24]">BMW</span> for Every <br />
-                Ambition and Passion
-              </span>
+            <h2 className="text-[28px] sm:text-[36px] lg:text-[38px] font-black text-zinc-900 leading-tight tracking-tight max-w-2xl">
+              A World-Class Range of <br />
+              <span className="text-[#ED1C24]">BMW</span> for Every <br />
+              Ambition and Passion
             </h2>
           </div>
 
           {/* Right Column: TS Logo Card */}
           <div className="flex-shrink-0 self-start lg:self-center">
-            <div className="border border-zinc-200/70 shadow-[0_4px_20px_rgba(0,0,0,0.04)] rounded-[14px] p-5 bg-white flex items-center justify-center w-[160px] h-[92px] transition-transform duration-300 hover:scale-[1.02]">
-              {/* SVG representing the Telkom Schools Logo */}
-              <svg className="w-16 h-12" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Red open book shape */}
-                <path d="M22 18C32 18 42 24 50 26C58 24 68 18 78 18V28C68 28 58 32 50 34C42 32 32 28 22 28V18Z" fill="#ED1C24" />
-                <path d="M50 26V34" stroke="white" strokeWidth="1.5" />
-                
-                {/* Gray TS letters */}
-                {/* The letter T */}
-                <path d="M38 38H62V41.5H52V52H48V41.5H38V38Z" fill="#71717A" />
-                {/* The letter S */}
-                <path d="M43 49C43 46.5 45.5 45.5 48 45.5H52C54.5 45.5 57 46.5 57 49C57 51.5 54.5 52.5 52 52.5H48" stroke="#71717A" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-              </svg>
+            <div className="border border-zinc-200/70 shadow-[0_4px_20px_rgba(0,0,0,0.04)] rounded-[16px] p-3 bg-white flex items-center justify-center w-[92px] h-[92px] transition-transform duration-300 hover:scale-[1.02]">
+              <img
+                src="/logo-telkom-schools-bundar-removebg-preview.png"
+                alt="Logo SMK Telkom"
+                className="w-full h-full object-contain"
+              />
             </div>
           </div>
 

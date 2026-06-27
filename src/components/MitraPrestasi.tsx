@@ -7,40 +7,43 @@ import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 const PARTNERS = [
   {
     name: "Telkom Indonesia",
-    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkom_Indonesia_2013.svg",
+    logoUrl: "/logos/telkomindo.png",
+    heightClass: "h-[46px]",
   },
   {
     name: "KAI",
-    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/5/56/Logo_Kereta_Api_Indonesia_%28Persero%29_2020.svg",
+    logoUrl: "/logos/kai.png",
+    heightClass: "h-[40px]",
   },
   {
     name: "NVIDIA",
-    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/2/21/Nvidia_logo.svg",
+    logoUrl: "/logos/nvidia.png",
+    heightClass: "h-[58px]",
   },
   {
     name: "Microsoft",
-    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
+    logoUrl: "/logos/microsoft.png",
+    heightClass: "h-[44px]",
   },
   {
     name: "Intel",
-    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Intel-logo.svg",
-  },
-  {
-    name: "Cisco",
-    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg",
+    logoUrl: "/logos/intel.png",
+    heightClass: "h-[48px]",
   },
   {
     name: "Google",
-    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+    logoUrl: "/logos/google.png",
+    heightClass: "h-[44px]",
   },
   {
-    name: "AWS",
-    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
+    name: "Apple",
+    logoUrl: "/logos/apple.png",
+    heightClass: "h-[46px]",
   },
 ];
 
-// Duplicate partners list multiple times to support infinite scrolling
-const MARQUEE_ITEMS = [...PARTNERS, ...PARTNERS, ...PARTNERS];
+// Duplicate partners list multiple times to support infinite scrolling smoothly
+const MARQUEE_ITEMS = [...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS];
 
 
 // ── PRESTASI DATA ──
@@ -123,15 +126,9 @@ export default function MitraPrestasi() {
       </div>
 
       <div className="max-w-[1240px] mx-auto relative z-10 flex flex-col gap-24">
-        
-        {/* ── SECTION 1: HUBUNGAN INDUSTRI ── */}
-        <div className="flex flex-col items-center">
-          <span className="text-zinc-400 text-[11.5px] font-bold uppercase tracking-widest block mb-3">
-            Hubungan Industri
-          </span>
-          <h2 className="text-[28px] sm:text-[34px] lg:text-[40px] font-black text-zinc-900 leading-tight tracking-tight uppercase mb-12">
-            Mitra Industri Terkemuka
-          </h2>
+
+        {/* ── SECTION 1: HUBUNGAN INDUSTRI (MARQUEE ONLY) ── */}
+        <div className="flex flex-col items-center w-full">
 
           {/* Inline styles for guaranteed marquee animation */}
           <style>{`
@@ -167,7 +164,7 @@ export default function MitraPrestasi() {
                   <img
                     src={partner.logoUrl}
                     alt={partner.name}
-                    className="h-8 max-w-[85%] object-contain filter grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                    className={`${partner.heightClass} w-auto object-contain`}
                   />
                 </div>
               ))}
@@ -186,7 +183,7 @@ export default function MitraPrestasi() {
 
           {/* Slider Container */}
           <div className="relative w-full max-w-[1240px] flex items-center justify-center px-4 md:px-16 min-h-[460px]">
-            
+
             {/* Left Button */}
             <button
               onClick={handlePrev}
@@ -199,15 +196,14 @@ export default function MitraPrestasi() {
             <div className="flex items-center justify-center gap-6 w-full overflow-visible relative py-6">
               {getOrderedItems().map((item) => {
                 const isCenter = item.position === 0;
-                
+
                 return (
                   <div
                     key={item.id}
-                    className={`bg-white rounded-[24px] overflow-hidden border border-zinc-200/80 flex flex-col transition-all duration-500 w-full max-w-[340px] sm:max-w-[360px] md:max-w-[370px] ${
-                      isCenter
+                    className={`bg-white rounded-[24px] overflow-hidden border border-zinc-200/80 flex flex-col transition-all duration-500 w-full max-w-[340px] sm:max-w-[360px] md:max-w-[370px] ${isCenter
                         ? "shadow-[0_20px_50px_rgba(0,0,0,0.12)] scale-100 z-20 border-zinc-300"
                         : "opacity-40 scale-90 blur-[1px] hidden sm:flex z-10 pointer-events-none"
-                    }`}
+                      }`}
                   >
                     {/* Image Area */}
                     <div className="relative h-48 w-full overflow-hidden bg-zinc-100 flex-shrink-0">
@@ -218,7 +214,7 @@ export default function MitraPrestasi() {
                       />
                       {/* Dark overlay top and bottom */}
                       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/10 pointer-events-none" />
-                      
+
                       {/* Student info tag floating */}
                       <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-10">
                         <span className="bg-white/90 backdrop-blur-md text-[10px] font-black uppercase text-zinc-950 px-3 py-1.5 rounded-[8px] tracking-wide border border-zinc-200/50 shadow-sm">

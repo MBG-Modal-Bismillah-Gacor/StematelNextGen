@@ -109,7 +109,7 @@ export default function Fasilitas() {
 
       <div className="relative z-10 w-full h-full">
         {/* Main Banner Card (Full Width matching Hero / Mengapa Memilih) */}
-        <div className="w-full h-full rounded-[2.5rem] overflow-hidden relative border border-zinc-200/70 shadow-2xl bg-zinc-950">
+        <div className="w-full h-full rounded-[28px] overflow-hidden relative border border-zinc-200/70 shadow-2xl bg-zinc-950">
           
           {/* Background Slide Image with Fade Animation */}
           {SLIDES.map((slide, idx) => (

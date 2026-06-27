@@ -47,7 +47,7 @@ export default function Footer() {
     <div className="w-full bg-white px-5 pb-5 pt-0">
 
       {/* ── CTA BANNER (above footer card) ── */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-[#ED1C24] via-[#d41920] to-[#b01018] rounded-[20px] px-10 py-14 mb-4 flex flex-col items-center text-center gap-6">
+      <div className="relative overflow-hidden bg-gradient-to-br from-[#ED1C24] via-[#d41920] to-[#b01018] rounded-[28px] px-10 py-14 mb-4 flex flex-col items-center text-center gap-6">
         {/* Decorative blobs */}
         <div className="absolute -left-16 -top-16 w-64 h-64 rounded-full bg-white/5 pointer-events-none" />
         <div className="absolute -right-10 -bottom-10 w-48 h-48 rounded-full bg-black/10 pointer-events-none" />
@@ -170,9 +170,9 @@ export default function Footer() {
         <div
           className="relative z-10 w-full overflow-hidden"
           aria-hidden="true"
-          style={{ height: "clamp(88px, 12vw, 160px)" }}
+          style={{ height: "clamp(140px, 17vw, 230px)" }}
         >
-          <div className="absolute bottom-0 left-0 w-full flex items-end justify-center">
+          <div className="absolute bottom-8 left-0 w-full flex items-end justify-center">
             <span
               className="text-white font-black uppercase whitespace-nowrap"
               style={{

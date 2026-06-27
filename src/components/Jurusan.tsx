@@ -247,7 +247,7 @@ export default function Jurusan() {
   };
 
   return (
-    <section id="jurusan" className="relative w-full bg-white py-24 px-6 select-none border-t border-gray-100 overflow-visible">
+    <section id="jurusan" className="relative w-full bg-white pt-24 pb-12 px-6 select-none border-t border-gray-100 overflow-visible">
       
       {/* Centered vertical lines running from top to bottom of section */}
       <div className="absolute inset-y-0 left-6 right-6 max-w-[1240px] mx-auto pointer-events-none hidden xl:block z-0">
@@ -287,7 +287,7 @@ export default function Jurusan() {
         </div>
 
         {/* 2. Scrolling Stacked Cards Container */}
-        <div className="relative flex flex-col gap-12 pb-24 md:pb-36 overflow-visible">
+        <div className="relative flex flex-col gap-12 pb-10 md:pb-14 overflow-visible">
           {JURUSAN_DATA.map((major, index) => {
             return (
               <div

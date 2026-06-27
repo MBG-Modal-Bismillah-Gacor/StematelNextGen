@@ -15,11 +15,11 @@ const PARTNERS = [
     name: "Cisco",
     logo: (
       <svg viewBox="0 0 80 40" className="h-7 w-auto" fill="currentColor">
-        <rect x="0" y="14" width="10" height="12" rx="2"/>
-        <rect x="14" y="8" width="10" height="24" rx="2"/>
-        <rect x="28" y="4" width="10" height="32" rx="2"/>
-        <rect x="42" y="8" width="10" height="24" rx="2"/>
-        <rect x="56" y="14" width="10" height="12" rx="2"/>
+        <rect x="0" y="14" width="10" height="12" rx="2" />
+        <rect x="14" y="8" width="10" height="24" rx="2" />
+        <rect x="28" y="4" width="10" height="32" rx="2" />
+        <rect x="42" y="8" width="10" height="24" rx="2" />
+        <rect x="56" y="14" width="10" height="12" rx="2" />
         <text x="0" y="38" fontSize="9" fontWeight="700" fontFamily="sans-serif" letterSpacing="2">CISCO</text>
       </svg>
     ),
@@ -36,10 +36,10 @@ const PARTNERS = [
     name: "Microsoft",
     logo: (
       <svg viewBox="0 0 130 40" className="h-7 w-auto" fill="currentColor">
-        <rect x="0" y="2" width="17" height="17" fill="#currentColor" opacity="0.9"/>
-        <rect x="20" y="2" width="17" height="17" fill="currentColor" opacity="0.6"/>
-        <rect x="0" y="21" width="17" height="17" fill="currentColor" opacity="0.6"/>
-        <rect x="20" y="21" width="17" height="17" fill="currentColor" opacity="0.4"/>
+        <rect x="0" y="2" width="17" height="17" fill="#currentColor" opacity="0.9" />
+        <rect x="20" y="2" width="17" height="17" fill="currentColor" opacity="0.6" />
+        <rect x="0" y="21" width="17" height="17" fill="currentColor" opacity="0.6" />
+        <rect x="20" y="21" width="17" height="17" fill="currentColor" opacity="0.4" />
         <text x="44" y="28" fontSize="16" fontWeight="700" fontFamily="sans-serif">Microsoft</text>
       </svg>
     ),

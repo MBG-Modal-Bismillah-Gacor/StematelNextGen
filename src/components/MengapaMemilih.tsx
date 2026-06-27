@@ -15,7 +15,7 @@ export default function MengapaMemilih() {
 
       <div className="relative z-10 w-full h-full">
         {/* Giant Black Container Card - styled to match Hero height */}
-        <div className="w-full h-full bg-[#08090b] border border-zinc-900 rounded-[2.5rem] p-8 md:p-12 lg:p-16 shadow-2xl relative overflow-hidden flex items-center">
+        <div className="w-full h-full bg-[#08090b] border border-zinc-900 rounded-[28px] p-8 md:p-12 lg:p-16 shadow-2xl relative overflow-hidden flex items-center">
           
           {/* Inner content wrapper to keep text/cards aligned with the global page layout constraints */}
           <div className="max-w-[1240px] mx-auto w-full">

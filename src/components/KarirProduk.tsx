@@ -17,7 +17,7 @@ export default function KarirProduk() {
 
       <div className="relative z-10 w-full">
         {/* Dark card wrapper — rounded seperti card Fasilitas */}
-        <div className="w-full rounded-[2.5rem] overflow-hidden border border-zinc-200/70 shadow-2xl bg-zinc-950 px-10 md:px-16 py-14 md:py-20">
+        <div className="w-full rounded-[28px] overflow-hidden border border-zinc-200/70 shadow-2xl bg-zinc-950 px-10 md:px-16 py-14 md:py-20">
 
           {/* Subtle dot texture overlay */}
           <div

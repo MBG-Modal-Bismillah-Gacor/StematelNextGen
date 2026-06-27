@@ -7,7 +7,7 @@ export default function Hero() {
     <section className="relative w-full bg-white px-6 pb-6 pt-[88px] select-none" style={{ height: "100vh", minHeight: "600px", maxHeight: "800px" }}>
 
       {/* Outer rounded card container */}
-      <div className="relative w-full h-full rounded-[2.5rem] border border-gray-200 shadow-lg overflow-hidden bg-[#0d0e12]">
+      <div className="relative w-full h-full rounded-[28px] border border-gray-200 shadow-lg overflow-hidden bg-[#0d0e12]">
 
         {/* Layer 1: Background Image (Building & Sky) */}
         <img
