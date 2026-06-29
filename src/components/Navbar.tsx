@@ -75,10 +75,12 @@ export default function Navbar() {
           <div className="flex-shrink-0 flex items-center gap-4">
             <a
               href="#"
-              className="hidden lg:flex items-center gap-1.5 bg-gradient-to-r from-[#ED1C24] to-[#D11018] hover:from-[#D11018] hover:to-[#B30E14] text-white text-[12px] font-bold tracking-wider px-6 h-[40px] rounded-[6px] transition-all duration-300 hover:shadow-lg hover:shadow-red-500/25 active:scale-[0.97] whitespace-nowrap uppercase group"
+              className="hidden lg:flex items-center bg-[#ED1C24] hover:bg-[#C8161D] text-white rounded-[6px] h-[38px] pl-5 pr-1.5 gap-2.5 transition-all hover:shadow-md active:scale-95 w-max uppercase"
             >
-              PPDB
-              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+              <span className="text-[11.5px] font-bold tracking-wider">PPDB</span>
+              <span className="flex items-center justify-center w-6 h-6 bg-white rounded-[4px] text-[#ED1C24]">
+                <ArrowRight className="w-3.5 h-3.5 transform -rotate-45 stroke-[2.5]" />
+              </span>
             </a>
 
             <button
@@ -113,10 +115,12 @@ export default function Navbar() {
         <a
           href="#"
           onClick={() => setIsOpen(false)}
-          className="mt-4 w-full text-center py-3.5 bg-[#ED1C24] hover:bg-[#C8161D] text-white rounded-lg text-sm font-bold tracking-wide transition-all uppercase flex items-center justify-center gap-2"
+          className="mt-4 w-full flex items-center justify-center bg-[#ED1C24] hover:bg-[#C8161D] text-white rounded-[6px] h-[44px] gap-2.5 transition-all hover:shadow-md active:scale-95 uppercase"
         >
-          PPDB
-          <ArrowRight className="w-4 h-4" />
+          <span className="text-[12px] font-bold tracking-wider">PPDB</span>
+          <span className="flex items-center justify-center w-6 h-6 bg-white rounded-[4px] text-[#ED1C24]">
+            <ArrowRight className="w-3.5 h-3.5 transform -rotate-45 stroke-[2.5]" />
+          </span>
         </a>
       </div>
     </>

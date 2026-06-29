@@ -86,7 +86,7 @@ export default function Hero() {
           {/* PPDB Button */}
           <a
             href="#footer"
-            className="w-[140px] py-2.5 border border-white/30 bg-white/10 backdrop-blur-md hover:bg-white/20 hover:border-white/50 text-white font-bold text-[12px] tracking-wide rounded-[6px] transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:shadow-[0_0_15px_rgba(255,255,255,0.15)] text-center flex items-center justify-center gap-1.5 cursor-pointer group"
+            className="w-[140px] py-2.5 border border-[#ED1C24]/30 bg-[#ED1C24]/10 backdrop-blur-md hover:bg-[#ED1C24]/20 hover:border-[#ED1C24]/50 text-white font-bold text-[12px] tracking-wide rounded-[6px] transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:shadow-[0_0_15px_rgba(237,28,36,0.15)] text-center flex items-center justify-center gap-1.5 cursor-pointer group"
           >
             PPDB
             <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />

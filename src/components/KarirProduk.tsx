@@ -68,7 +68,7 @@ export default function KarirProduk() {
                 <div className="mt-8 flex justify-end">
                   <a
                     href="#jurusan"
-                    className="inline-flex items-center gap-2 border border-white/15 rounded-full px-5 py-2.5 text-[12px] font-bold text-white hover:bg-white hover:text-zinc-950 transition-all duration-300 group-hover:border-white/30"
+                    className="h-[36px] px-5 border border-white/20 bg-white/5 hover:bg-white/10 hover:border-white/40 text-white font-bold text-[11.5px] tracking-wide rounded-[6px] transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] text-center flex items-center justify-center gap-1.5 cursor-pointer uppercase"
                   >
                     Lebih detail
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -99,7 +99,7 @@ export default function KarirProduk() {
                 <div className="mt-8 flex justify-end">
                   <a
                     href="#program-sekolah"
-                    className="inline-flex items-center gap-2 border border-white/15 rounded-full px-5 py-2.5 text-[12px] font-bold text-white hover:bg-white hover:text-zinc-950 transition-all duration-300 group-hover:border-white/30"
+                    className="h-[36px] px-5 border border-white/20 bg-white/5 hover:bg-white/10 hover:border-white/40 text-white font-bold text-[11.5px] tracking-wide rounded-[6px] transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] text-center flex items-center justify-center gap-1.5 cursor-pointer uppercase"
                   >
                     Lebih detail
                     <ArrowUpRight className="w-3.5 h-3.5" />
